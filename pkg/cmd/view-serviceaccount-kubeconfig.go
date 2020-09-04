@@ -181,7 +181,7 @@ func (o *ViewServiceaccountKubeconfigOptions) Run() error {
 	config := &clientcmdapi.Config{
 		CurrentContext: currentContext,
 		Clusters: map[string]*clientcmdapi.Cluster{
-			"cluster": &clientcmdapi.Cluster{
+			cluster: &clientcmdapi.Cluster{
 				Server:                   server,
 				CertificateAuthorityData: caCrt,
 			},
@@ -192,7 +192,7 @@ func (o *ViewServiceaccountKubeconfigOptions) Run() error {
 			},
 		},
 		Contexts: map[string]*clientcmdapi.Context{
-			"context": &clientcmdapi.Context{
+			currentContext: &clientcmdapi.Context{
 				Cluster:   cluster,
 				AuthInfo:  serviceaccount.GetName(),
 				Namespace: namespace,
